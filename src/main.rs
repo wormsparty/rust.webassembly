@@ -105,11 +105,11 @@ fn App() -> impl IntoView {
 
 fn render_canvas(ctx: &CanvasRenderingContext2d, game: &Game, cell_size: f64) {
     // Clear
-    ctx.set_fill_style(&JsValue::from_str("#000"));
+    ctx.set_fill_style_str("#000");
     ctx.fill_rect(0.0, 0.0, 400.0, 400.0);
 
     // Food
-    ctx.set_fill_style(&JsValue::from_str("#f44336"));
+    ctx.set_fill_style_str("#f44336");
     ctx.fill_rect(
         game.food.x as f64 * cell_size,
         game.food.y as f64 * cell_size,
@@ -120,9 +120,9 @@ fn render_canvas(ctx: &CanvasRenderingContext2d, game: &Game, cell_size: f64) {
     // Snake
     for (i, pos) in game.snake.iter().enumerate() {
         if i == 0 {
-            ctx.set_fill_style(&JsValue::from_str("#8bc34a"));
+            ctx.set_fill_style_str("#8bc34a");
         } else {
-            ctx.set_fill_style(&JsValue::from_str("#4caf50"));
+            ctx.set_fill_style_str("#4caf50");
         }
         ctx.fill_rect(
             pos.x as f64 * cell_size,
